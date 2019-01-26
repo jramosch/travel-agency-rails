@@ -9,14 +9,14 @@
 
 DATA = {
   :user_keys =>
-    ["name", "ticket_credits", "energy", "fun", "password"]
+    ["name", "ticket_credits", "energy", "fun", "password"],
   :users => [
     ["Kratos", 1030, 5, 2, "password"],
     ["Arkam Knight", 920, 3, 3, "password"],
     ["Bayonetta", 666, 1, 5, "password"]
   ],
   :location_keys =>
-    ["name", "description", "price", "activity_rating", "excitement_rating"]
+    ["name", "description", "price", "activity_rating", "excitement_rating"],
   :locations => [
     [" COMO Cocoa Island, The Maldives",
     "Christina Ong’s hotels—the Turks and Caicos’s Parrot Cay, Bangkok’s Metropolitan—are all about detail, and Cocoa Island is no exception, from the reconditioned Vietnamese fans in the bar and restaurant to the signature bathroom products made by Baldwins, the renowned British herbalist. The 33 freestanding accommodations resemble a phalanx of dhonis (traditional Maldivian fishing boats), but the interiors are best described as New England beach hut meets National Geographic, with tongue-and-groove white walls and ethnic floor cushions.",
@@ -36,7 +36,7 @@ DATA = {
     ["Casa de Campo, Dominican Republic",
     "An exclusive & luxurious resort, featuring impressive villas, championship golf courses and private beaches. Discover your dream Dominican Republic vacation!",
     350, 2, 1]
-  ]
+  ],
   :admins => [
     "Jamilya R-C",
     "Bruce Wayne"
