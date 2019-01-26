@@ -42,3 +42,19 @@ DATA = {
     "Bruce Wayne"
   ]
 }
+
+def main
+  make_users
+  make_admins
+  make_locations
+end
+
+def make_users
+  DATA[:users].each do |user|
+    new_user = User.new
+    user.each_with_index do |attribute, i|
+      new_user.send(DATA[:user_keys][i]+"=", attribute)
+    end
+    new_user.save
+  end
+end
