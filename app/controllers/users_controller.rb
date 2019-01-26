@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    return redirect_to '/signin' unless @user.save
+    return redirect_to '/users/new' unless @user.save
     session[:user_id]
     redirect_to "/users/#{@user.id}"
   end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :travel_credits, :mood, :admin, :password, :password_confirmation)
+    params.require(:user).permit(:name, :travel_credits, :energy, :fun, :admin, :password, :password_confirmation)
   end
 
   def require_login
