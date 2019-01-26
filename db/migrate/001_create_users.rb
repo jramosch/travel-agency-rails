@@ -4,7 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :password_digest
       t.integer :travel_credits
-      t.string :mood
+      t.integer :energy
+      t.integer :fun
       t.boolean :admin, default: false, null: false
     end
   end
