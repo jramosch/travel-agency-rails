@@ -6,12 +6,12 @@
   </head>
   <body>
     <%= form_for @user do |f| %>
-      Name: <%= f.text_field :name %>
-      Energy: <%= f.select :energy, [['1 - Tired',1],2,3,4,['5 - Rested',5]] %>
-      Fun: <%= f.select :fun, [['Bored',1],2,3,4,['Exhilirated',5]] %>
-      Password: <%= f.password_field :password %>
-      Password Confirmation: <%= f.password_field :password_confirmation %>
-      Admin <%= f.check_box :admin %>
+      <p>Name: <%= f.text_field :name %></p>
+      <p>Energy: <%= f.select :energy, [['1 - Tired',1],2,3,4,['5 - Rested',5]] %></p>
+      <p>Fun: <%= f.select :fun, [['Bored',1],2,3,4,['Exhilirated',5]] %></p>
+      <p>Password: <%= f.password_field :password %>
+      Password Confirmation: <%= f.password_field :password_confirmation %></p>
+      <p>Admin <%= f.check_box :admin %></p>
       <%= f.submit "Sign Up" %>
     <% end %>
   </body>
