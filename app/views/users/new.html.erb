@@ -5,6 +5,14 @@
     <title>Sign Up</title>
   </head>
   <body>
-
+    <%= form_for @user do |f| %>
+      Name: <%= f.text_field :name %>
+      Energy: <%= f.select :energy, [['Tired',1],2,3,4,['Rested',5]] %>
+      Fun: <%= f.select :fun, [['Bored',1],2,3,4,['Exhilirated',5]] %>
+      Passwword: <%= f.password_field :password %>
+      Password Confirmation: <%= f.password_field :password_confirmation %>
+      Admin <%= f.check_box :admin %>
+      <%= f.submit "Sign Up" %>
+    <% end %>
   </body>
 </html>
