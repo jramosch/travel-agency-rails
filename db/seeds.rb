@@ -15,7 +15,7 @@ DATA = {
     ["Arkam Knight", 920, 3, 3, "password"],
     ["Bayonetta", 666, 1, 5, "password"]
   ],
-  :location_leys =>
+  :location_keys =>
     ["name", "description", "price", "activity_rating", "excitement_rating"]
   :locations => [
     [" COMO Cocoa Island, The Maldives",
@@ -58,3 +58,21 @@ def make_users
     new_user.save
   end
 end
+
+def make_admins
+  DATA[:admins].each do |name|
+    User.create(name: name, admin: true, password: 'password')
+  end
+end
+
+def make_locations
+  DATA[:locations].each do |location|
+    new_location = Location.new
+    location.each_with_index do |location, i|
+      new_location.send(DATA[:location_keys][i]+"=", attribute)
+    end
+    new_location.save
+  end
+end
+
+main
