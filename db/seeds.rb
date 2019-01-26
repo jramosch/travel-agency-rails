@@ -68,10 +68,12 @@ end
 def make_locations
   DATA[:locations].each do |location|
     new_location = Location.new
+    wayne = User.find_by(name: "Bruce Wayne")
     location.each_with_index do |attribute, i|
       new_location.send(DATA[:location_keys][i]+"=", attribute)
     end
     new_location.save
+    wayne.locations << new_location
   end
 end
 
