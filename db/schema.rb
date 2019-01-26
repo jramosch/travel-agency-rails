@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.integer "price"
     t.integer "activity_rating"
     t.integer "excitement_rating"
