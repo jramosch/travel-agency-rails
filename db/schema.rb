@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "name"
     t.string "password_digest"
     t.integer "travel_credits"
-    t.string "mood"
+    t.integer "energy"
+    t.integer "fun"
     t.boolean "admin", default: false, null: false
   end
 
