@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer "price"
     t.integer "activity_rating"
     t.integer "excitement_rating"
+    t.integer "user_id"
   end
 
   create_table "trips", force: :cascade do |t|
