@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     @user.travel_credits = 500
     return redirect_to '/users/new' unless @user.save
-    session[:user_id]
+    session[:user_id] = @user.id
     redirect_to "/users/#{@user.id}"
   end
 
