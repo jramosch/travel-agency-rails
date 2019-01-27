@@ -6,6 +6,9 @@
   </head>
   <body>
     <%= render 'user' unless @user.admin %>
+    <%= render '/admin/admin' if @user.admin %>
+    <br>
+    <%= link_to "Locations", locations_path %>
     <%= link_to "Log Out", '/logout' %>
   </body>
 </html>
