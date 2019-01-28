@@ -3,13 +3,17 @@ class Trip < ActiveRecord::Base
   belongs_to :trip_location, class_name: 'Location', foreign_key: :location_id
 
   def take_trip
-    location = self.trip_location
-    if current_user.travel_credits < location.price && current_user.energy < location.activity_rating && current_user.fun < location.excitement_rating
+    location = Location.find(self.location_id)
+    user = User.find(self.user_id)
+    if user.travel_credits < location.price && user.energy < location.activity_rating && user.fun < location.excitement_rating
       "Sorry, you don't have enough credits and maybe you'd like something more relaxing & calmer."
-    elsif current_user.energy < location.activity_rating && current_user.fun < location.excitement_rating
+    elsif user.energy < location.activity_rating && user.fun < location.excitement_rating
       "Sorry, maybe you want something a little more relaxing & calmer."
-    elsif current_user.fun < location.excitement_rating
+    elsif user.fun < location.excitement_rating
       "Sorry, maybe you want something a little calmer."
+    else
+      user.update(:travel_credits => (user.travel_credits -= location.price))
+      
     end
   end
 end
