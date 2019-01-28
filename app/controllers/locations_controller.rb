@@ -23,6 +23,7 @@ class LocationsController < ApplicationController
   end
 
   def update
+    @location = Location.find(params[:id])
     @location.update(location_params)
     return redirect_to edit_location_path(@location) unless @location.save
     redirect_to location_path(@location)
