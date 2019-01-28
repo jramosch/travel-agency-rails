@@ -6,9 +6,12 @@
   </head>
   <body>
     <h2><%= location.name %></h2>
+    <% if current_user.admin? %>
+      Created by: <%= @location.user.name %>
+    <% end %>
     <p><%= location.description%></p>
-    <p>Price: $<%= location.price %></p>
-    <p>Activity Rating: <%= location.activity_rating %></p>
-    <p>Excitement Rating: <%= location.excitement_rating %></p>
+    <p>Price: $<%= location.price %>
+    | Activity Rating: <%= location.activity_rating %> |
+    Excitement Rating: <%= location.excitement_rating %></p>
   </body>
 </html>
