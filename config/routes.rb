@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :users
   resources :locations
   post 'locations/:id' => 'locations#take_trip', as: :take_trip
+
+  namespace :admin do
+    resources :users, only: [:show, :index]
+  end
 end
