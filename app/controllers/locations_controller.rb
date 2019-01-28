@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.create(location_params)
+    current_user.locations << @location
     return redirect_to '/locations/new' unless @location.save
     redirect_to "/locations/#{@location.id}"
   end
