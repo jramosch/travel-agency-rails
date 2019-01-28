@@ -21,7 +21,8 @@ class LocationsController < ApplicationController
   def take_trip
     @location = Location.find(params[:id])
     trip = Trip.create(user_id: current_user.id location_id: @location.id)
-    redirect_to user_path(current_user)
+    trip.take_trip
+    redirect_to '/'
   end
 
   private
