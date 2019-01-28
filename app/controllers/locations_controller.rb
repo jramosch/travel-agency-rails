@@ -18,6 +18,16 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location.update(location_params)
+    return redirect_to edit_location_path(@location) unless @location.save
+    redirect_to location_path(@location)
+  end
+
   def take_trip
     @location = Location.find(params[:id])
     trip = Trip.create(user_id: current_user.id, location_id: @location.id)
