@@ -18,6 +18,12 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
+  def take_trip
+    @location = Location.find(params[:id])
+    trip = Trip.create(user_id: current_user.id location_id: @location.id)
+    redirect_to user_path(current_user)
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :description, :price, :activity_rating, :excitement_rating)
