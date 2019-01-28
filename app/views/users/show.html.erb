@@ -8,6 +8,5 @@
     <%= render 'user' unless @user.admin %>
     <%= render '/admin/admin' if @user.admin %>
     <br>
-    <%= link_to "Log Out", '/logout' %>
   </body>
 </html>
