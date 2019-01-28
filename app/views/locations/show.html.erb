@@ -6,5 +6,9 @@
   </head>
   <body>
     <%= render 'location', location: @location %>
+
+    <%= button_to "Take Trip", take_trip_url(@location) unless current_user.admin? %>
+
+    <%= button_to "Edit Location", edit_location_path(@location) %>
   </body>
 </html>
