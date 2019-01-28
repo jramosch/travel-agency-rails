@@ -8,6 +8,10 @@
     <h2>Welcome Admin <%= @user.name %></h2>
 
     <%= link_to "Create Location", new_location_path %>
+
+    <% @user.locations.first(5).each do |l| %>
+      <p><%= link_to "#{l.name}", location_path(l) %></p>
+    <% end %>
     <%-# link_to "Manage Locations You Created" -%>
 
   </body>
