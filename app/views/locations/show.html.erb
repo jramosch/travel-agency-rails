@@ -5,10 +5,6 @@
     <title><%= @location.name %></title>
   </head>
   <body>
-    <h2><%= @location.name %></h2>
-    <p><%= @location.description%></p>
-    <p>Price: <%= @location.price %></p>
-    <p>Activity Rating: <%= @location.activity_rating %></p>
-    <p>Excitement Rating: <%= @location.excitement_rating %></p>
+    <%= render 'location', location: @location %>
   </body>
 </html>
