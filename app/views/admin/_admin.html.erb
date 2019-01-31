@@ -9,11 +9,11 @@
 
     <p><%= link_to "Create Location", new_location_path %></p>
 
-    <h3>Locations You Created</h3>
+    <h4>Locations You Created:</h4>
     <% @user.locations.first(5).each do |l| %>
       <p><%= link_to "#{l.name}", location_path(l) %></p>
     <% end %>
-    <%= link_to "See All",  admin_locations_path %>
+    <%= link_to "(See All)",  admin_locations_path %>
 
   </body>
 </html>
