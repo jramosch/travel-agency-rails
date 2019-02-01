@@ -9,6 +9,7 @@
 
     <%= button_to "Take Trip", take_trip_url(@location) unless current_user.admin? %>
 
-    <%= link_to "Edit Location", edit_location_path(@location) if @location.user == current_user %>
+    <%= link_to "Update Price", edit_location_path(@location) if current_user.admin?%>
+    <%= link_to "Edit Location", edit_admin_location_path(@location)if @location.user == current_user %>
   </body>
 </html>
