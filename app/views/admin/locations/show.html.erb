@@ -5,6 +5,8 @@
     <title><%= @location.name %></title>
   </head>
   <body>
-    
+    <%= render partial: 'locations/location', locals: {location: @location} %>
+
+    <%= link_to "Edit Location", edit_location_path(@location) %>
   </body>
 </html>
