@@ -7,7 +7,7 @@
   <body>
     <%= render 'location', location: @location %>
     <%= form_for @location do |f| %>
-      <%= f.number_field :price  %>
+      $<%= f.number_field :price  %>
       <%= f.submit "Update Price" %>
     <% end %>
   </body>
