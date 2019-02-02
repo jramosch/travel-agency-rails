@@ -5,6 +5,7 @@
     <title>Manage Your Locations</title>
   </head>
   <body>
+    <h2>Locations You've Created:</h2>
     <% @locations.each do |location| %>
       <p><%= link_to "#{location.name}", admin_location_path(location) %></p>
     <% end %>
