@@ -5,6 +5,10 @@
     <title></title>
   </head>
   <body>
-
+    <%= form_for @user do |f| %>
+      <%= render 'users/form', f: f %>
+      <p>Travel Credits: $<%= f.number_field :travel_credits %></p>
+      <%= f.submit "Update User Account" %>
+    <% end %>
   </body>
 </html>
