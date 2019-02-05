@@ -10,6 +10,5 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :locations, only: [:show, :index, :edit]
-    resources :users, only: [:show, :index, :edit]
   end
 end
