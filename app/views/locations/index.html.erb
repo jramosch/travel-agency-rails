@@ -5,6 +5,8 @@
     <title>Locations</title>
   </head>
   <body>
+    <h1>All Locations</h1>
+    
     <% @locations.each do |location| %>
       <p><%= link_to "#{location.name}", location_path(location)%></p>
     <% end %>
