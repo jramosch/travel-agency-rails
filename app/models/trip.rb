@@ -13,7 +13,7 @@ class Trip < ActiveRecord::Base
       "Sorry, maybe you want something a little calmer."
     else
       user.update(:travel_credits => (user.travel_credits -= location.price))
-      
+      "What a trip! Hope you had fun. Don't forget to review."
     end
   end
 end
