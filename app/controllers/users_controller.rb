@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user.travel_credits = 500
     return redirect_to '/users/new' unless @user.save
     session[:user_id] = @user.id
+    flash[:notice] = "Welcome & thank you for signing up!"
     redirect_to "/users/#{@user.id}"
   end
 
