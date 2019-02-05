@@ -6,5 +6,9 @@
   </head>
   <body>
     <h2>Travel Clients</h2>
+
+    <% @users.each do |user| %>
+      <p><%= link_to "#{user.name}", user_path(user) unless user.admin? %></p>
+    <% end %>
   </body>
 </html>
