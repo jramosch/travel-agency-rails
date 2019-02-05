@@ -33,7 +33,7 @@ class LocationsController < ApplicationController
   def take_trip
     @location = Location.find(params[:id])
     trip = Trip.create(user_id: current_user.id, location_id: @location.id)
-    trip.take_trip
+    flash[:notice] = trip.take_trip
     redirect_to '/'
   end
 
