@@ -16,6 +16,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    return redirect_to admin_location_path(@location) if current_user == @location.user
   end
 
   def edit
