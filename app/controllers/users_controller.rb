@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    return redirect_to edit_admin_use_path(@user) unless @user.save
+    redirect_to user_path(@user)
   end
 
   private
