@@ -9,4 +9,8 @@ class Location < ActiveRecord::Base
       self.trips.average(:rating).round
     end
   end
+
+  def self.recommended(user)
+    where("activity_rating <= ? AND excitement_rating <= ?", user.energy, user.fun)
+  end
 end
