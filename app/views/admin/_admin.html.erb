@@ -5,9 +5,9 @@
     <title>Admin</title>
   </head>
   <body>
-    <h2>Welcome Admin <%= @user.name %></h2>
+    <h3>Admin Panel</h3>
 
-    <p><%= link_to "View Users", users_path %></p>
+    <p><%= link_to "View Users", admin_users_path %></p>
     <p><%= link_to "Create Location", new_location_path %></p>
 
     <h4>Locations You Created:</h4>
