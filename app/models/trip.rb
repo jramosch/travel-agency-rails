@@ -8,7 +8,7 @@ class Trip < ActiveRecord::Base
     if user.travel_credits < location.price && user.energy < location.activity_rating && user.fun < location.excitement_rating
       "Sorry, you don't have enough credits and maybe you'd like something more relaxing & calmer."
     elsif user.travel_credits < location.price
-      "Sorry, you don't have enough credits."
+      "Sorry, you don't have enough credits. Reach out to an agent."
     elsif user.energy < location.activity_rating || user.fun < location.excitement_rating
       "Sorry, maybe you want something a little more relaxing or calmer."
     elsif user.travel_credits && (user.energy < location.activity_rating || user.fun < location.excitement_rating)
