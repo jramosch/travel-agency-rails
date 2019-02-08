@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def home
     if in_session?
       @user = User.find(session[:user_id])
-      redirect_to "/users/#{@user.id}"
+      render "application/welcome"
     end
   end
 
