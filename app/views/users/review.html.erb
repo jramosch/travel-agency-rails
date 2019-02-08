@@ -1,0 +1,5 @@
+<%= form_for @user do |f| %>
+  <%= fields_for :trip, @user.trips.last do |f| %>
+    <p>Trip Rating: <%= f.select :rating, [['1 - Awful',1],2,3,4,['5 - Amazing!',5]] %></p>
+  <% end %>
+<% end %>
