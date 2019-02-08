@@ -1,2 +1,4 @@
 <p>Energy: <%= @user.energy %></p>
 <p>Fun: <%= @user.fun %></p>
+
+<%= link_to "Review Most Recent Trip", review_url(@user) if @user.last_trip.rating.nil? %>
