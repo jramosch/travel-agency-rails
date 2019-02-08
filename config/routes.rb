@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :users, except: [:index]
+  resources :users
   resources :locations
   post 'locations/:id' => 'locations#take_trip', as: :take_trip
 
   namespace :admin do
     resources :locations, only: [:show, :index, :edit]
-    resources :users, only: [:index, :edit]
+    resources :users, only: [:index, :edit, :show]
   end
 end
