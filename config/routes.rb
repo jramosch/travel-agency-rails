@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'users/:id/review', to: 'users#review', as: :review
   post 'users/:id', to: 'users#post_review', as: :post_review
 
+  get 'locations/recommended', to: 'locations#recommended', as: :recommended
   resources :locations
-  post 'locations/:id' => 'locations#take_trip', as: :take_trip
+  post 'locations/:id', to: 'locations#take_trip', as: :take_trip
 
   namespace :admin do
     resources :locations, only: [:show, :index, :edit]
