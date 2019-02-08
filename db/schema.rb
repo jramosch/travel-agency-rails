@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "trips", force: :cascade do |t|
     t.integer "user_id"
     t.integer "location_id"
-    t.integer "user_rating"
+    t.integer "rating"
   end
 
   create_table "users", force: :cascade do |t|
