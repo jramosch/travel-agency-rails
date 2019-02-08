@@ -2,9 +2,8 @@
 <p>Fun: <%= @user.fun %></p>
 
 <%= link_to "Review Most Recent Trip", review_url(@user) if @user.last_trip.rating.nil? %>
+<%= link_to "Recommended Trips", recommended_url %>
 
 <h3>Past Trips</h3>
 
-<% @user.trip_locations.uniq.each do |location| %>
-  <p><%= link_to "#{location.name}", location_path(location) %></p>
-<% end %>
+<%= render 'locations/locations', locations: @user.trip_locations.uniq %>
