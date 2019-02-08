@@ -34,10 +34,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def post_review
+    @user = User.find(params[:id])
+    trip = @user.trips.last
+    trip.update(rating: user_params[:trip_rating])
+    return redirect_to review_url(@user) unless trip.save
+    flash[:notice] = "Review successfully posted."
+    redirect_to '/'
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :travel_credits, :energy, :fun, :admin, :password, :password_confirmation)
+    params.require(:user).permit(:name, :travel_credits, :energy, :fun, :admin, :password, :password_confirmation, :trip_rating)
   end
 
   def require_login
