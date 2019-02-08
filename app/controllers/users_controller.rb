@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     redirect_to admin_user_path(@user)
   end
 
+  def review
+    @user = User.find(params[:id])
+  end
+
   private
 
   def user_params
