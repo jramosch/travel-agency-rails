@@ -37,6 +37,10 @@ class LocationsController < ApplicationController
     redirect_to '/'
   end
 
+  def recommended
+    @locations = Location.recommended(current_user)
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :description, :price, :activity_rating, :excitement_rating)
