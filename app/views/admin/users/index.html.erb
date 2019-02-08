@@ -5,10 +5,10 @@
     <title>All Users</title>
   </head>
   <body>
-    <h2>Travel Clients</h2>
+    <h2>Users</h2>
 
     <% @users.each do |user| %>
-      <p><%= link_to "#{user.name}", user_path(user) unless user.admin? %></p>
+      <p><%= link_to "#{user.name}", admin_user_path(user)%></p>
     <% end %>
   </body>
 </html>
