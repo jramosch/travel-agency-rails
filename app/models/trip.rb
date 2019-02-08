@@ -9,9 +9,9 @@ class Trip < ActiveRecord::Base
       "Sorry, you don't have enough credits and maybe you'd like something more relaxing & calmer."
     elsif user.travel_credits < location.price
       "Sorry, you don't have enough credits."
-    elsif user.energy <= location.activity_rating || user.fun < location.excitement_rating
+    elsif user.energy < location.activity_rating || user.fun < location.excitement_rating
       "Sorry, maybe you want something a little more relaxing or calmer."
-    elsif user.travel_credits && (user.energy <= location.activity_rating || user.fun < location.excitement_rating)
+    elsif user.travel_credits && (user.energy < location.activity_rating || user.fun < location.excitement_rating)
       "Sorry, you don't have enough credits. And maybe you want something a little calmer."
     else
       user.update(:travel_credits => (user.travel_credits -= location.price))
