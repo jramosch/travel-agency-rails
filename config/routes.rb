@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users
+  get 'users/:id/review', to: 'users#review', as: :review
+  post 'users/:id', to: 'users#post_review', as: :post_review
+
   resources :locations
   post 'locations/:id' => 'locations#take_trip', as: :take_trip
 
