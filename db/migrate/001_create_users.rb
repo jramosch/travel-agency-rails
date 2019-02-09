@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :energy
       t.integer :fun
       t.boolean :admin, default: false, null: false
+      t.string :provider
       t.string :uid
       t.string :oauth_token
       t.datetime :oauth_expires_at
