@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_by(name: params[:user_name])
-    return head(:forbidden) unless @user.authenticate(params[:password])
+    if params[:provider]
+      @user = User.from_omniuth(request.env["omniauth.auth"])
+    else
+      @user = User.find_or_create_by(name: params[:user_name])
+      return head(:forbidden) unless @user.authenticate(params[:password])
+    end
     session[:user_id] = @user.id
     flash[:notice] = "Successfully logged in!"
     redirect_to '/'
