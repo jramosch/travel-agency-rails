@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/auth/failure', to: redirect('/')
   get '/logout', to: 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :locations, only: [:index]
+  end
   get 'users/:id/review', to: 'users#review', as: :review
   post 'users/:id', to: 'users#post_review', as: :post_review
 
