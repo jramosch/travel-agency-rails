@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    return redirect_to edit_admin_use_path(@user) unless @user.save
+    return redirect_to edit_admin_user_path(@user) unless @user.save
     flash[:notice] = "Successfully updated."
     redirect_to admin_user_path(@user)
   end
