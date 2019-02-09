@@ -1,9 +1,14 @@
-<%= form_tag signin_path do %>
-  <%= label_tag :user_name, "Name:" %>
-  <%= select_tag :user_name, options_from_collection_for_select(@users, "name", "name") %>
+<title>Sign In</title>
+<body>
+  <%= link_to "Sign In With Google", '/auth/google_oauth2' %>
 
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %>
+  <%= form_tag signin_path do %>
+    <%= label_tag :user_name, "Name:" %>
+    <%= select_tag :user_name, options_from_collection_for_select(@users, "name", "name") %>
 
-  <%= submit_tag "Sign In" %>
-<% end %>
+    <%= label_tag :password, "Password:" %>
+    <%= password_field_tag :password %>
+
+    <%= submit_tag "Sign In" %>
+  <% end %>
+</body>
