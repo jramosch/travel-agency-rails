@@ -8,5 +8,10 @@
     <%= render partial: 'locations/location', locals: {location: @location} %>
 
     <%= link_to "Edit Location", edit_admin_location_path(@location) %>
+
+    <h3>Past Visitors</h3>
+    <% @location.users.each do |u| %>
+      <p><%= link_to "#{u.name}", user_path(u)%></p>
+    <% end %>
   </body>
 </html>
