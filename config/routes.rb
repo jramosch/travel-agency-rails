@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'application#home'
   get '/signin', to: 'sessions#new'
-  match '/auth/google/callback', to: 'sessions#create'
   post '/signin', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/')
   get '/logout', to: 'sessions#destroy'
 
   resources :users
