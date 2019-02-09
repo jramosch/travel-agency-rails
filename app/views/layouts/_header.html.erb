@@ -3,4 +3,4 @@
 <% end %>
 
 <%= link_to "Home", '/' %>
-<%= link_to "Locations", locations_path unless session[:user_id].nil? %>
+<%= link_to "Locations", locations_path if in_session? %>
