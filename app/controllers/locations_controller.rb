@@ -5,9 +5,14 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.create(location_params)
-    current_user.locations << @location
-    return redirect_to '/locations/new' unless @location.save
-    redirect_to "/locations/#{@location.id}"
+    if @location.valid?
+      current_user.locations << @location
+      return redirect_to '/locations/new' unless @location.save
+      redirect_to "/locations/#{@location.id}"
+    else
+      flash[:notice] = @location.errors.full_messages.join(". ")
+      redirect_to new_location_path
+    end
   end
 
   def index
