@@ -3,6 +3,9 @@ class Location < ActiveRecord::Base
   has_many :trips
   has_many :users, through: :trips
 
+  validates_presence_of :name, :description, :price
+  validates_uniqueness_of :name
+
   def average_rating
     if self.trips.empty?
       "Not Enough Ratings"
