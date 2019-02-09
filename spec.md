@@ -4,9 +4,9 @@ Specs:
 - [x] Using Ruby on Rails for the project
 - [x] Include at least one has_many relationship (Location has_many Trips, User has_many Trips, User has_many Locations, etc.)
 - [x] Include at least one belongs_to relationship (Location belongs_to User, Trip belongs_to User, etc.)
-- [ ] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-- [ ] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [x] Include at least two has_many through relationships (Users has_many Trip_Locations through Trips, Locations has_many Users through Trips)
+- [x] Include at least one many-to-many relationship (User has_many Locations (via trip_locations) and Locations has_many Users)
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (trip.rating is submittable by User after taking trip)
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. Location.recommended URL: /locations/recommended)
 - [ ] Include signup (how e.g. Devise)
