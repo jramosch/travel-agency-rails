@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show]
+  skip_before_action :require_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -7,11 +7,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    @user.travel_credits = 500
-    return redirect_to '/users/new' unless @user.save
-    session[:user_id] = @user.id
-    flash[:notice] = "Welcome & thank you for signing up!"
-    redirect_to "/users/#{@user.id}"
+    if @user.valid?
+      @user.travel_credits = 500
+      return redirect_to '/users/new' unless @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome & thank you for signing up!"
+      redirect_to "/users/#{@user.id}"
+    else
+      flash[:notice] = @user.errors.full_messages.join(". ")
+      redirect_to new_user_path
+    end
+
   end
 
   def show
