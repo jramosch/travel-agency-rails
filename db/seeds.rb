@@ -46,7 +46,7 @@ DATA = {
 def main
   make_users
   make_admins
-  make_locations
+  make_locations_and_trips
 end
 
 def make_users
@@ -65,13 +65,19 @@ def make_admins
   end
 end
 
-def make_locations
+def make_locations_and_trips
   DATA[:locations].each do |location|
     new_location = Location.new
     wayne = User.find_by(name: "Bruce Wayne")
     location.each_with_index do |attribute, i|
       new_location.send(DATA[:location_keys][i]+"=", attribute)
     end
+    rand(1..8).times do
+      clients = []
+      User.all.each {|u| clients << u unless u.admin?}
+      new_location.users << clients[rand(0..clients.length)]
+    end
+    new_location.users.each {|c| c.save}
     new_location.save
     wayne.locations << new_location
   end
