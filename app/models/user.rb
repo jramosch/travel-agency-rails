@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_secure_password :validations => false
   attr_accessor :trip_rating
 
+  validates_presence_of :name, :password
+  validates_uniqueness_of :name
+
   has_many :locations
   has_many :trips
   has_many :trip_locations, through: :trips
