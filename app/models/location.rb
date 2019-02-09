@@ -7,7 +7,7 @@ class Location < ActiveRecord::Base
   validates_uniqueness_of :name
 
   def average_rating
-    if self.trips.empty?
+    if self.trips.empty? || self.trips.average(:rating).nil?
       "Not Enough Ratings"
     else
       self.trips.average(:rating).round
