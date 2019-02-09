@@ -24,7 +24,7 @@ class Trip < ActiveRecord::Base
   def update_energy
     location = Location.find(self.location_id)
     user = self.user
-    if location.activity_rating == 1 && user.energy != 5
+    if location.activity_rating == 1 && user.energy != 5 && user.energy == 1
       user.increment!(:energy)
     else
       user.update(:energy => user.energy -= location.activity_rating)
@@ -34,7 +34,7 @@ class Trip < ActiveRecord::Base
   def update_fun
     location = Location.find(self.location_id)
     user = self.user
-    if location.excitement_rating == 1 && user.fun != 5
+    if location.excitement_rating == 1 && user.fun != 5 && user.fun == 1
       user.increment!(:fun)
     else
       user.update(:fun => user.fun -= location.excitement_rating)
