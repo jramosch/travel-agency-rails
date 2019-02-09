@@ -16,7 +16,16 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all
+    if params[:user_id]
+      if User.find(params[:user_id])
+        @locations = User.find(params[:user_id]).trip_locations.uniq
+      else
+        flash[:notice] = "User not found."
+        redirect_to root_path
+      end
+    else
+      @locations = Location.all
+    end
   end
 
   def show
