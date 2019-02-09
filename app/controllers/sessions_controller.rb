@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, except: [:destroy]
+
   def new
     @users = User.all
     redirect_to '/' if in_session?
@@ -13,7 +15,7 @@ class SessionsController < ApplicationController
     end
     session[:user_id] = @user.id
     flash[:notice] = "Successfully logged in!"
-    redirect_to '/'
+    redirect_to '/signin'
   end
 
   def destroy
