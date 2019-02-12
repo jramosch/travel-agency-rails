@@ -3,4 +3,3 @@
 
 <%= link_to "Review Most Recent Trip", review_url(@user) if @user.trips.any? && @user.last_trip.rating.nil? %><br>
 <%= link_to "Recommended Trips", recommended_url %>
-<%= link_to "Past Trips", user_locations_url(@user.id) %>
