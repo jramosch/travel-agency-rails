@@ -5,6 +5,11 @@
     <title>Past Trips</title>
   </head>
   <body>
-    
+    <p><%= link_to "Book A New Trip", new_user_trip_path(current_user.id) %></p>
+    <% @trips.each do |trip| %>
+      <p><%= link_to "#{trip.trip_location.name}", location_path(trip.trip_location) %> |
+        Rating: <%= trip.rating %></p>
+    <% end %>
+
   </body>
 </html>
