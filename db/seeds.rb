@@ -12,7 +12,7 @@ DATA = {
     ["name", "travel_credits", "energy", "fun", "password"],
   :users => [
     ["Kratos", 1030, 5, 2, "password"],
-    ["Arkam Knight", 920, 3, 3, "password"],
+    ["Arkam Knight", 1920, 3, 3, "password"],
     ["Bayonetta", 666, 1, 5, "password"]
   ],
   :location_keys =>
@@ -79,14 +79,11 @@ def make_locations
 end
 
 def make_trips
-  rand(1..8).times do
+  10.times do
     location = Location.order_by_rand.first
     user = User.order_by_rand.first
-    trip = Trip.new
-    trip.user = user
-    trip.trip_location = location
-    trip.rating = rand(1..5)
-    trip.save!
+    trip = Trip.create(user: user, trip_location: location, rating: rand(1..5))
+    trip.save
   end
 end
 
