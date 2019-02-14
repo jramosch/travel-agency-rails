@@ -32,3 +32,6 @@
 
 # Ignore environment.
 /.env
+
+#Ignore tmp file
+/.DS_Store
