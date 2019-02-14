@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users do
-    resources :trips, only: [:index, :new, :edit]
+    resources :trips, only: [:index, :new]
   end
+  post 'users/:id/trips', to: 'trips#create'
+
   get 'users/:id/review', to: 'users#review', as: :review
   post 'users/:id', to: 'users#post_review', as: :post_review
 
