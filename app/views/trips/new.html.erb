@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
-
+    <%= form_for @trip, url: user_trips_path do |f| %>
+      <%= f.select :location_id, @location_options %>
+      <%= f.submit "Take Trip" %>
+    <% end %>
   </body>
 </html>
