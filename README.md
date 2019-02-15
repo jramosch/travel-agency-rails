@@ -16,23 +16,3 @@ My Rails portfolio project functions as a virtual travel agency in which users c
 
 ## Licensing Statement
 This project has been licensed under the MIT open source license. License information for the project is proved in the LICENSE.MD file in this directory.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
