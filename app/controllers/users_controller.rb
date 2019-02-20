@@ -17,7 +17,6 @@ class UsersController < ApplicationController
       flash[:notice] = @user.errors.full_messages.join(". ")
       redirect_to new_user_path
     end
-
   end
 
   def show
