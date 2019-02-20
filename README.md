@@ -17,7 +17,7 @@ My Rails portfolio project functions as a virtual travel agency in which users c
 9. Follow links or prompts as you wish
 
 ## Contributing
-Bug reports and pull requests are welcome https://github.com/jramosch/travel-agency-rails. This project is intended to be a space for collaboration and contributors are expected to adhere to the [Contributor Covenant] (https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome at https://github.com/jramosch/travel-agency-rails. This project is intended to be a space for collaboration and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## Licensing Statement
-This project has been licensed under the MIT open source license. License information for the project is provided in the LICENSE.MD file in this directory.
+This project has been licensed under the MIT open source license. License information for the project is provided in the [LICENSE](LICENSE) file in this directory.
