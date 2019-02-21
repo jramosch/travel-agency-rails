@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     if params[:provider]
-      @user = User.from_omniuth(request.env["omniauth.auth"])
+      @user = User.from_omniauth(request.env["omniauth.auth"])
     else
       @user = User.find_or_create_by(name: params[:user_name])
       return head(:forbidden) unless @user.authenticate(params[:password])
