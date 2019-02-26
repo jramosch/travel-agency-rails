@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'users/:id', to: 'users#post_review', as: :post_review
 
   get 'locations/recommended', to: 'locations#recommended', as: :recommended
-  resources :locations
+  resources :locations, only: [:show, :index]
   post 'locations/:id', to: 'locations#take_trip', as: :take_trip
 
   namespace :admin do
