@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
     else
       flash[:notice] = @user.errors.full_messages.join(". ")
-      redirect_to new_user_path
+      render new_user_path
     end
   end
 
