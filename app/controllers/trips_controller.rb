@@ -19,8 +19,21 @@ class TripsController < ApplicationController
     redirect_to '/'
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @trip = @user.trips.last
+  end
+
+  def update
+    user = User.find(params[:user_id])
+    @trip = user.trips.last
+    @trip.update(trip_params)
+    flash[:notice] = "Review successfully posted."
+    redirect_to '/'
+  end
+
   private
   def trip_params
-    params.require(:trip).permit(:user_id, :location_id)
+    params.require(:trip).permit(:user_id, :location_id, :rating)
   end
 end
