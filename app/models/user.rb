@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
-  has_secure_password validations: false
-  validates_presence_of :password, on: :create
-  attr_accessor :trip_rating
-
+  has_secure_password
+  require 'securerandom'
   validates_presence_of :name
   validates_uniqueness_of :name
 
@@ -19,6 +17,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
+      user.password = SecureRandom.hex(10)
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
