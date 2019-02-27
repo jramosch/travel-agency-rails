@@ -1,0 +1,6 @@
+<h2>Rate Your Most Recent Trip To...</h2>
+<h3><%= @trip.trip_location.name %></h3>
+<%= form_for [@user, @trip] do |f| %>
+  <p>Trip Rating: <%= f.select :rating, [['1 - Awful',1],2,3,4,['5 - Amazing!',5]] %></p>
+  <%= f.submit "Submit" %>
+<% end %>
