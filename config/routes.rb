@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users do
-    resources :trips, only: [:index, :new]
+    resources :trips, only: [:index, :new, :edit, :update]
   end
   post 'users/:id/trips', to: 'trips#create'
 
